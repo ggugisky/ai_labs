@@ -28,3 +28,4 @@ AI Labs is a biweekly AI sharing and discussion session held on Friday at 5:30 P
 ## Related Pages
 
 - [[LLM-Wiki]]
+- [[raw/2026-07-23-Open-Knowledge-Format]] - OKF 분석 노트, AI Labs 토론 아젠다용
