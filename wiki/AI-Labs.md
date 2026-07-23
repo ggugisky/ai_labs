@@ -29,3 +29,4 @@ AI Labs is a biweekly AI sharing and discussion session held on Friday at 5:30 P
 
 - [[LLM-Wiki]]
 - [[raw/2026-07-23-Open-Knowledge-Format]] - OKF 분석 노트, AI Labs 토론 아젠다용
+- [[raw/2026-07-23-Claude-Tag]] - Claude Tag 분석 노트, Slack 기반 팀용 에이전트와 권한/메모리/감사 로그 관점 토론용

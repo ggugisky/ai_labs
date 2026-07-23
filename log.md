@@ -11,3 +11,5 @@
 
 - Added `raw/2026-07-23-Open-Knowledge-Format.md` with an analysis of Google's Open Knowledge Format article.
 - Linked the note from `wiki/AI-Labs.md` as a discussion agenda item.
+- Added `raw/2026-07-23-Claude-Tag.md` with an analysis of Anthropic's Claude Tag article.
+- Linked the note from `wiki/AI-Labs.md` as a discussion agenda item.
