@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSOT 지식 저장소 계층 구조</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1c1e26;
+    --surface2: #252835;
+    --border: #2e3145;
+    --text-primary: #e8eaf0;
+    --text-secondary: #8b90a8;
+    --text-muted: #565b75;
+
+    --c1: #5b8def;
+    --c2: #f0a04b;
+    --c3: #4ec9a0;
+    --c4: #a78bfa;
+    --c5: #f472b6;
+
+    --arrow: #4a5070;
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 14px;
+    min-height: 100vh;
+  }
+
+  /* ── SLIDE SYSTEM ─────────────────────────────── */
+  .slides { width: 100%; }
+
+  .slide {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px 60px;
+    min-height: 100vh;
+  }
+  .slide.active { display: flex; }
+
+  .slide-nav {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+  }
+  .slide-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+  }
+  .slide-btn:hover { border-color: var(--c1); color: var(--c1); }
+  .slide-btn.active { background: var(--c1); border-color: var(--c1); color: #fff; }
+
+  /* ── SHARED HEADER ────────────────────────────── */
+  .slide-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+  }
+  .slide-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  /* ══════════════════════════════════════════════
+     SLIDE 1 — DETAIL VIEW
+  ══════════════════════════════════════════════ */
+  .diagram {
+    width: 100%;
+    max-width: 820px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .section {
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    overflow: hidden;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px 10px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .section-body { padding: 14px 16px; }
+
+  .source-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .tool-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .tool-card .role {
+    font-size: 11px; font-weight: 700;
+    color: var(--c1); margin-bottom: 5px;
+  }
+  .tool-card .tools {
+    font-size: 12px; color: var(--text-secondary); line-height: 1.6;
+  }
+
+  .pattern-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .pattern-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .pattern-label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    color: var(--c2); margin-bottom: 4px;
+  }
+  .pattern-title { font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 3px; }
+  .pattern-desc  { font-size: 11px; color: var(--text-secondary); line-height: 1.5; }
+  .pattern-example {
+    margin-top: 5px; font-size: 10px; color: var(--text-muted);
+    background: var(--bg); border-radius: 4px;
+    padding: 3px 6px; display: inline-block;
+  }
+  .file-chip {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 5px; padding: 3px 8px;
+    font-size: 11px; color: var(--text-secondary);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  .wiki-inner {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 14px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .wiki-icon { font-size: 28px; flex-shrink: 0; }
+  .wiki-text .title { font-size: 13px; font-weight: 600; color: var(--c3); margin-bottom: 3px; }
+  .wiki-text .desc  { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+
+  .infra-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  }
+  .infra-card {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 12px; text-align: center;
+  }
+  .infra-card .fname {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 12px; font-weight: 600; color: var(--c4); margin-bottom: 4px;
+  }
+  .infra-card .fdesc { font-size: 11px; color: var(--text-secondary); }
+
+  .skills-row { display: flex; gap: 12px; }
+  .skill-card {
+    flex: 1; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 12px;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .skill-cmd {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 13px; font-weight: 700; color: var(--c5);
+    flex-shrink: 0; padding-top: 1px;
+  }
+  .skill-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.55; }
+
+  .arrow-block {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 3px; padding: 10px 0; position: relative;
+  }
+  .arrow-line  { width: 2px; height: 20px; background: var(--arrow); border-radius: 1px; }
+  .arrow-head  { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid var(--arrow); }
+  .arrow-label {
+    position: absolute; left: calc(50% + 14px); top: 50%;
+    transform: translateY(-50%); font-size: 11px; color: var(--text-muted);
+    white-space: nowrap; background: var(--bg);
+    padding: 2px 6px; border-radius: 4px; border: 1px solid var(--border);
+  }
+
+  .quote {
+    margin: 14px 0 0; padding: 10px 14px;
+    border-left: 3px solid var(--c2); background: rgba(240,160,75,0.07);
+    border-radius: 0 6px 6px 0; font-size: 12px;
+    color: var(--text-secondary); font-style: italic;
+  }
+
+  .section.source { border-color: rgba(91,141,239,0.4); }
+  .section.raw    { border-color: rgba(240,160,75,0.4); }
+  .section.wiki   { border-color: rgba(78,201,160,0.4); }
+  .section.infra  { border-color: rgba(167,139,250,0.4); }
+  .section.skills { border-color: rgba(244,114,182,0.4); }
+
+  .section-header.source { background: rgba(91,141,239,0.08); color: var(--c1); }
+  .section-header.raw    { background: rgba(240,160,75,0.08); color: var(--c2); }
+  .section-header.wiki   { background: rgba(78,201,160,0.08); color: var(--c3); }
+  .section-header.infra  { background: rgba(167,139,250,0.08); color: var(--c4); }
+  .section-header.skills { background: rgba(244,114,182,0.08); color: var(--c5); }
+
+  .dot.source { background: var(--c1); }
+  .dot.raw    { background: var(--c2); }
+  .dot.wiki   { background: var(--c3); }
+  .dot.infra  { background: var(--c4); }
+  .dot.skills { background: var(--c5); }
+
+  /* ══════════════════════════════════════════════
+     SLIDE 2 — PYRAMID VIEW
+  ══════════════════════════════════════════════ */
+  .pyramid-wrap {
+    width: 100%;
+    max-width: 860px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .pyramid-stage {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 180px 1fr 180px;
+    align-items: center;
+    gap: 0;
+  }
+
+  .py-svg { width: 100%; display: block; }
+
+  /* side annotation panels */
+  .py-left, .py-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .py-ann {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 14px;
+    position: relative;
+  }
+  .py-ann .ann-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .py-ann .ann-text {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+  .py-ann.c1 .ann-label { color: var(--c1); }
+  .py-ann.c2 .ann-label { color: var(--c2); }
+  .py-ann.c3 .ann-label { color: var(--c3); }
+
+  /* connector lines from annotation to pyramid */
+  .py-right .py-ann::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    width: 12px; height: 1px;
+    background: var(--border);
+  }
+  .py-left .py-ann::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 50%;
+    width: 12px; height: 1px;
+    background: var(--border);
+  }
+
+  /* flow arrow strip on the left of the pyramid column */
+  .py-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin: 16px 0;
+  }
+  .py-flow-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transform: rotate(180deg);
+  }
+
+  /* bottom infra + skills bar */
+  .py-bottom {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .py-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .py-card-header {
+    padding: 8px 14px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.7px; text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+  .py-card-header.infra  { background: rgba(167,139,250,0.08); color: var(--c4); }
+  .py-card-header.skills { background: rgba(244,114,182,0.08); color: var(--c5); }
+  .py-card-body {
+    padding: 10px 14px;
+    display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  .py-chip {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+  .py-chip.c4 { color: var(--c4); border-color: rgba(167,139,250,0.3); }
+  .py-chip.c5 { color: var(--c5); border-color: rgba(244,114,182,0.3); }
+  .py-chip-desc {
+    font-size: 11px; color: var(--text-muted);
+    align-self: center; line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+
+<div class="slides">
+
+  <!-- ══════════ SLIDE 1 ══════════ -->
+  <div id="slide-1" class="slide active">
+    <h1 class="slide-title">SSOT 지식 저장소 계층 구조</h1>
+    <p class="slide-sub">ssot/template 기반 — 원본 도구 → raw → wiki 승격 흐름</p>
+
+    <div class="diagram">
+
+      <div class="section source">
+        <div class="section-header source">
+          <div class="dot source"></div>
+          원본 도구 계층 (Source Tools)
+        </div>
+        <div class="section-body">
+          <div class="source-grid">
+            <div class="tool-card">
+              <div class="role">SE / 개발자</div>
+              <div class="tools">GitLab<br>Confluence</div>
+            </div>
+            <div class="tool-card">
+              <div class="role">기획자 / PM</div>
+              <div class="tools">Google Docs<br>Slides · Sheets</div>
+            </div>
+            <div class="tool-card">
+              <div class="role">아티스트 / 디자이너</div>
+              <div class="tools">Figma<br>3D / Animation 에셋</div>
+            </div>
+            <div class="tool-card">
+              <div class="role">DD</div>
+              <div class="tools">Notion<br>Jira</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow-block">
+        <div class="arrow-line"></div>
+        <div class="arrow-head"></div>
+        <div class="arrow-label">수집 · 등록</div>
+      </div>
+
+      <div class="section raw">
+        <div class="section-header raw">
+          <div class="dot raw"></div>
+          raw/ 계층 — 모든 입력의 진입점
+        </div>
+        <div class="section-body">
+          <div class="pattern-grid">
+            <div class="pattern-card">
+              <div class="pattern-label">패턴 A</div>
+              <div class="pattern-title">직접 콘텐츠</div>
+              <div class="pattern-desc">원본이 raw 파일 안에 직접 포함</div>
+              <span class="pattern-example">미팅 메모, 브레인스토밍</span>
+            </div>
+            <div class="pattern-card">
+              <div class="pattern-label">패턴 B</div>
+              <div class="pattern-title">소스 레지스트리</div>
+              <div class="pattern-desc">원본은 외부, raw는 링크 + 메타만 저장</div>
+              <span class="pattern-example">Confluence, GDocs, Figma URL</span>
+            </div>
+            <div class="pattern-card">
+              <div class="pattern-label">패턴 C</div>
+              <div class="pattern-title">혼합형</div>
+              <div class="pattern-desc">외부 링크 + 로컬 스냅샷 함께 보관</div>
+              <span class="pattern-example">삭제 위험 있는 중요 문서</span>
+            </div>
+          </div>
+          <div class="file-chip">
+            <span>📄</span>
+            raw/_source-template.md — raw 작성 패턴 예시 파일
+          </div>
+          <div class="quote">
+            💡 "원본을 복제하는 곳이 아니라, 원본을 찾아가는 표준화된 출입구"
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow-block">
+        <div class="arrow-line"></div>
+        <div class="arrow-head"></div>
+        <div class="arrow-label">/promote (재사용 가치 있을 때만)</div>
+      </div>
+
+      <div class="section wiki">
+        <div class="section-header wiki">
+          <div class="dot wiki"></div>
+          wiki/ 계층 — 승격된 재사용 지식
+        </div>
+        <div class="section-body">
+          <div class="wiki-inner">
+            <div class="wiki-icon">📚</div>
+            <div class="wiki-text">
+              <div class="title">정리본 (Curated Knowledge)</div>
+              <div class="desc">
+                raw에서 검토를 거쳐 승격된 문서만 포함.<br>
+                재사용 가능하고, 다른 문서에서 반복 참조되며, 사실관계가 안정된 내용.<br>
+                관련 wiki 간 상호 링크를 유지.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow-block">
+        <div class="arrow-line"></div>
+        <div class="arrow-head"></div>
+        <div class="arrow-label">자동 업데이트</div>
+      </div>
+
+      <div class="section infra">
+        <div class="section-header infra">
+          <div class="dot infra"></div>
+          인프라 파일 — 구조 유지
+        </div>
+        <div class="section-body">
+          <div class="infra-grid">
+            <div class="infra-card">
+              <div class="fname">index.md</div>
+              <div class="fdesc">전체 문서 인덱스 · 카테고리별 링크</div>
+            </div>
+            <div class="infra-card">
+              <div class="fname">log.md</div>
+              <div class="fdesc">생성·수정·승격 변경 이력</div>
+            </div>
+            <div class="infra-card">
+              <div class="fname">AGENTS.md</div>
+              <div class="fdesc">에이전트 운영 규칙 (promote / wiki-lint)</div>
+            </div>
+            <div class="infra-card">
+              <div class="fname">README.md</div>
+              <div class="fdesc">저장소 목적 및 도메인 설명</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow-block">
+        <div class="arrow-line"></div>
+        <div class="arrow-head"></div>
+        <div class="arrow-label">GitLab commit / push</div>
+      </div>
+
+      <div class="section skills">
+        <div class="section-header skills">
+          <div class="dot skills"></div>
+          에이전트 스킬
+        </div>
+        <div class="section-body">
+          <div class="skills-row">
+            <div class="skill-card">
+              <div class="skill-cmd">/promote</div>
+              <div class="skill-desc">
+                raw 파일을 wiki로 승격.<br>
+                index.md 링크 추가, log.md 이력 기록,<br>
+                raw 파일 헤더(<code>status: promoted</code>) 업데이트를 자동 처리.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-cmd">/wiki-lint</div>
+              <div class="skill-desc">
+                깨진 링크, 고아 페이지,<br>
+                frontmatter 누락 등 구조 문제 점검.<br>
+                분기별 전체 점검 · 승격 직후 실행 권장.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /slide-1 -->
+
+  <!-- ══════════ SLIDE 2 — PYRAMID ══════════ -->
+  <div id="slide-2" class="slide">
+    <h1 class="slide-title">SSOT 지식 저장소 — 계층 피라미드</h1>
+    <p class="slide-sub">원본 도구(넓은 입력) → raw(수집) → wiki(정제된 지식)</p>
+
+    <div class="pyramid-wrap">
+
+      <!-- pyramid + side annotations -->
+      <div class="pyramid-stage">
+
+        <!-- LEFT annotations -->
+        <div class="py-left">
+          <div class="py-ann c3" style="height:100px;">
+            <div class="ann-label">wiki/</div>
+            <div class="ann-text">승격된 재사용 지식<br>정리본 · 상호 링크 유지</div>
+          </div>
+          <div class="py-ann c2" style="height:128px;">
+            <div class="ann-label">raw/</div>
+            <div class="ann-text">모든 입력의 진입점<br>패턴 A · B · C</div>
+          </div>
+          <div class="py-ann c1" style="height:152px;">
+            <div class="ann-label">Source Tools</div>
+            <div class="ann-text">SE · 기획자 · 아티스트 · DD<br>GitLab · GDocs · Figma · Notion · Jira</div>
+          </div>
+        </div>
+
+        <!-- CENTER SVG pyramid -->
+        <div style="position:relative;">
+          <svg class="py-svg" viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- layer fills with subtle gradient -->
+              <linearGradient id="gWiki" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#3aab87" stop-opacity="0.85"/>
+                <stop offset="100%" stop-color="#4ec9a0" stop-opacity="0.7"/>
+              </linearGradient>
+              <linearGradient id="gRaw" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#d4862a" stop-opacity="0.85"/>
+                <stop offset="100%" stop-color="#f0a04b" stop-opacity="0.7"/>
+              </linearGradient>
+              <linearGradient id="gSrc" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#3f6ecf" stop-opacity="0.85"/>
+                <stop offset="100%" stop-color="#5b8def" stop-opacity="0.7"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Layer 3: Source Tools (bottom, widest) -->
+            <!-- top-left(50,248) top-right(410,248) bottom-left(8,392) bottom-right(452,392) -->
+            <polygon
+              points="50,248 410,248 452,392 8,392"
+              fill="url(#gSrc)"
+              stroke="#5b8def" stroke-width="1.5" stroke-opacity="0.6"
+            />
+            <text x="230" y="326" text-anchor="middle" font-size="15" font-weight="700" fill="#e8eaf0" opacity="0.95">Source Tools</text>
+            <text x="230" y="346" text-anchor="middle" font-size="10.5" fill="#b0bcd4" opacity="0.85">GitLab · Confluence · GDocs · Figma · Notion · Jira</text>
+            <text x="230" y="362" text-anchor="middle" font-size="10" fill="#7a8aac" opacity="0.75">SE / 기획자 / 아티스트 / DD</text>
+
+            <!-- gap line -->
+            <line x1="50" y1="248" x2="410" y2="248" stroke="#0f1117" stroke-width="8"/>
+
+            <!-- Layer 2: raw/ (middle) -->
+            <!-- top-left(92,120) top-right(368,120) bottom-left(50,240) bottom-right(410,240) -->
+            <polygon
+              points="92,120 368,120 410,240 50,240"
+              fill="url(#gRaw)"
+              stroke="#f0a04b" stroke-width="1.5" stroke-opacity="0.6"
+            />
+            <text x="230" y="189" text-anchor="middle" font-size="15" font-weight="700" fill="#e8eaf0" opacity="0.95">raw/</text>
+            <text x="230" y="209" text-anchor="middle" font-size="10.5" fill="#b0bcd4" opacity="0.85">수집된 모든 입력 · 직접 콘텐츠 / 링크 / 혼합형</text>
+
+            <!-- gap line -->
+            <line x1="92" y1="120" x2="368" y2="120" stroke="#0f1117" stroke-width="8"/>
+
+            <!-- Layer 1: wiki/ (top, narrowest) -->
+            <!-- top-left(160,4) top-right(300,4) bottom-left(92,112) bottom-right(368,112) -->
+            <polygon
+              points="160,4 300,4 368,112 92,112"
+              fill="url(#gWiki)"
+              stroke="#4ec9a0" stroke-width="1.5" stroke-opacity="0.6"
+            />
+            <text x="230" y="62" text-anchor="middle" font-size="15" font-weight="700" fill="#e8eaf0" opacity="0.95">wiki/</text>
+            <text x="230" y="82" text-anchor="middle" font-size="10.5" fill="#b0bcd4" opacity="0.85">정제된 재사용 지식</text>
+
+            <!-- promote arrow on right side -->
+            <line x1="390" y1="180" x2="390" y2="60" stroke="#4a5070" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="390,50 385,65 395,65" fill="#4a5070"/>
+            <text x="402" y="125" font-size="9.5" fill="#565b75" font-style="italic">/promote</text>
+
+            <!-- collect arrow on right side -->
+            <line x1="432" y1="310" x2="432" y2="186" stroke="#4a5070" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="432,176 427,191 437,191" fill="#4a5070"/>
+            <text x="438" y="252" font-size="9.5" fill="#565b75" font-style="italic">수집</text>
+          </svg>
+        </div>
+
+        <!-- RIGHT annotations -->
+        <div class="py-right">
+          <div class="py-ann c3" style="height:100px;">
+            <div class="ann-label">정제 · 참조</div>
+            <div class="ann-text">재사용 가치 있는<br>문서만 승격</div>
+          </div>
+          <div class="py-ann c2" style="height:128px;">
+            <div class="ann-label">수집 · 등록</div>
+            <div class="ann-text">원본 직접 또는<br>URL 링크로 등록</div>
+          </div>
+          <div class="py-ann c1" style="height:152px;">
+            <div class="ann-label">원본 도구</div>
+            <div class="ann-text">직군별 작업 도구<br>원본은 외부에 유지</div>
+          </div>
+        </div>
+
+      </div><!-- /pyramid-stage -->
+
+      <!-- bottom: infra + skills -->
+      <div class="py-bottom">
+        <div class="py-card">
+          <div class="py-card-header infra">인프라 파일 — 구조 유지</div>
+          <div class="py-card-body">
+            <span class="py-chip c4">index.md</span>
+            <span class="py-chip c4">log.md</span>
+            <span class="py-chip c4">AGENTS.md</span>
+            <span class="py-chip c4">README.md</span>
+          </div>
+        </div>
+        <div class="py-card">
+          <div class="py-card-header skills">에이전트 스킬</div>
+          <div class="py-card-body">
+            <span class="py-chip c5">/promote</span>
+            <span class="py-chip-desc">raw → wiki 승격 자동화</span>
+            <span class="py-chip c5">/wiki-lint</span>
+            <span class="py-chip-desc">링크·고아 페이지 점검</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /slide-2 -->
+
+  <!-- ══════════ SLIDE 3 — Pedro Wiki 섹션 타이틀 ══════════ -->
+  <div id="slide-3" class="slide">
+    <h1 class="slide-title">실전 사례: LLM Wiki 운영 패턴</h1>
+    <p class="slide-sub">Project Pedro 지식 관리 저장소 기반 — raw 3패턴 · wiki · index · log · AGENTS</p>
+
+    <div class="diagram" style="max-width:700px; gap:20px; margin-top:16px;">
+      <div style="display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap;">
+        <div style="background:rgba(240,160,75,0.12); border:1.5px solid rgba(240,160,75,0.35); border-radius:10px; padding:18px 24px; text-align:center; min-width:120px;">
+          <div style="font-size:28px; margin-bottom:6px;">📁</div>
+          <div style="font-size:13px; font-weight:700; color:var(--c2);">raw/</div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:3px;">패턴 A · B · C</div>
+        </div>
+        <div style="font-size:22px; color:var(--arrow);">→</div>
+        <div style="background:rgba(78,201,160,0.12); border:1.5px solid rgba(78,201,160,0.35); border-radius:10px; padding:18px 24px; text-align:center; min-width:120px;">
+          <div style="font-size:28px; margin-bottom:6px;">📚</div>
+          <div style="font-size:13px; font-weight:700; color:var(--c3);">wiki/</div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:3px;">승격된 정리본</div>
+        </div>
+        <div style="font-size:22px; color:var(--arrow);">+</div>
+        <div style="background:rgba(167,139,250,0.12); border:1.5px solid rgba(167,139,250,0.35); border-radius:10px; padding:18px 24px; text-align:center; min-width:120px;">
+          <div style="font-size:28px; margin-bottom:6px;">🗂️</div>
+          <div style="font-size:13px; font-weight:700; color:var(--c4);">index.md</div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:3px;">네비게이션 허브</div>
+        </div>
+        <div style="font-size:22px; color:var(--arrow);">+</div>
+        <div style="background:rgba(244,114,182,0.12); border:1.5px solid rgba(244,114,182,0.35); border-radius:10px; padding:18px 24px; text-align:center; min-width:120px;">
+          <div style="font-size:28px; margin-bottom:6px;">📋</div>
+          <div style="font-size:13px; font-weight:700; color:var(--c5);">log.md</div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:3px;">변경 이력</div>
+        </div>
+      </div>
+      <div class="quote" style="max-width:700px;">
+        💡 각 슬라이드에서 Pedro 저장소의 실제 파일 예시를 한 페이지씩 소개합니다
+      </div>
+    </div>
+  </div><!-- /slide-3 -->
+
+  <!-- ══════════ SLIDE 4 — 패턴 A ══════════ -->
+  <div id="slide-4" class="slide">
+    <h1 class="slide-title">raw / 패턴 A — 직접 콘텐츠</h1>
+    <p class="slide-sub">원본 콘텐츠가 raw 파일 안에 직접 있는 경우 · 미팅 메모, 현장 메모, 초안</p>
+
+    <div class="diagram" style="max-width:760px;">
+      <div class="section raw">
+        <div class="section-header raw"><div class="dot raw"></div>예시 파일: raw/2026-07-19-weekly-sync.md</div>
+        <div class="section-body">
+          <pre style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:16px 20px; font-size:12px; line-height:1.7; font-family:'JetBrains Mono','Fira Code',monospace; color:var(--text-secondary); overflow:auto; white-space:pre;">---
+author: 홍길동
+collected_at: 2026-07-19
+status: draft
+---
+
+# 2026-07-19 Weekly Sync 메모
+
+## 참석자
+- 홍길동, 김철수
+
+## 결정사항
+- Draft 화면 UI 확정: 3×3 그리드
+- 출시 일정: 8/24~28
+
+## Action Items
+- [ ] 홍길동: Figma 업데이트
+- [ ] 김철수: 서버 API 설계</pre>
+          <div class="quote" style="margin-top:14px;">파일명 규칙: <code style="color:var(--c2);">YYYY-MM-DD-{주제}.md</code> · source_url 불필요 · 콘텐츠 전체가 raw 파일 안에 존재</div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /slide-4 -->
+
+  <!-- ══════════ SLIDE 5 — 패턴 B ══════════ -->
+  <div id="slide-5" class="slide">
+    <h1 class="slide-title">raw / 패턴 B — 소스 레지스트리</h1>
+    <p class="slide-sub">원본이 외부 시스템에 있고, raw는 링크와 메타데이터만 담는 경우</p>
+
+    <div class="diagram" style="max-width:760px;">
+      <div class="section raw">
+        <div class="section-header raw"><div class="dot raw"></div>예시 파일: raw/pedro-introduction.md (Google Slides 116장)</div>
+        <div class="section-body">
+          <pre style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:16px 20px; font-size:12px; line-height:1.7; font-family:'JetBrains Mono','Fira Code',monospace; color:var(--text-secondary); overflow:auto; white-space:pre;">---
+source_url: https://docs.google.com/presentation/d/1VydTDj247qPof-P2xj.../edit
+author: Lee, ChangShin
+collected_at: 2026-07-14
+version: 1.0
+status: promoted
+promoted_to: wiki/pedro-fairplay-introduction.md
+promoted_at: 2026-07-14
+---
+
+# Red Pine x Fair Play 소개 슬라이드
+
+Google Slides 원문 116장.
+
+## 주요 내용
+- Fair Play 4대 기둥: Team Play / Fair Play / Tailored Gameplay / New Monetization
+- Common Player / Wild Card 시스템
+- Draft: 라운드별 Ban & Pick (Snake 순서)
+
+## 메모
+이 파일은 소스 레지스트리 역할만 한다. 전체 내용은 source_url 참조.</pre>
+          <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
+            <div class="file-chip"><span>🔗</span> SE → GitLab, Confluence</div>
+            <div class="file-chip"><span>📊</span> 기획자 → Google Docs / Slides / Sheets</div>
+            <div class="file-chip"><span>🎨</span> 아티스트 → Figma, 3D 에셋</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /slide-5 -->
+
+  <!-- ══════════ SLIDE 6 — 패턴 C ══════════ -->
+  <div id="slide-6" class="slide">
+    <h1 class="slide-title">raw / 패턴 C — 혼합형</h1>
+    <p class="slide-sub">외부 원본 링크 + 로컬 스냅샷 함께 저장 · snapshot_at으로 버전 차이 추적</p>
+
+    <div class="diagram" style="max-width:760px;">
+      <div class="section raw">
+        <div class="section-header raw"><div class="dot raw"></div>예시 파일: raw/pedro-confluence-overview.md (Confluence 스냅샷)</div>
+        <div class="section-body">
+          <pre style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:16px 20px; font-size:12px; line-height:1.7; font-family:'JetBrains Mono','Fira Code',monospace; color:var(--text-secondary); overflow:auto; white-space:pre;">---
+source_url: https://confluence.ea.com/spaces/RP/pages/1405722971
+author: Lee, ChangShin
+collected_at: 2026-07-08
+snapshot_at: 2026-07-22     ← 스냅샷 기준일, Last Modified와 비교
+status: promoted
+promoted_to: wiki/pedro-overview.md
+---
+
+# Project Pedro Confluence 개요 (스냅샷)
+
+> 주의: 2026-07-22 기준 스냅샷. 최신 내용은 source_url 참조.
+
+## 마일스톤 (스냅샷 기준)
+| 주차 | 내용            |
+|------|-----------------|
+| 6    | 개발용 DB Submit |
+| 8    | SangMin 출장    |
+| 11   | 1st Playtest    |</pre>
+          <div class="quote" style="margin-top:12px;">💡 <code style="color:var(--c2);">snapshot_at &lt; Last Modified</code> 이면 <code>/confluence-sync</code>가 변경 감지 → wiki 자동 반영</div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /slide-6 -->
+
+  <!-- ══════════ SLIDE 7 — wiki/ ══════════ -->
+  <div id="slide-7" class="slide">
+    <h1 class="slide-title">wiki/ — 정리본 승격</h1>
+    <p class="slide-sub">재사용 가능한 지식만 담는다 · raw 원본보다 읽기 쉽고 연결된 형태로 재작성</p>
+
+    <div class="diagram" style="max-width:760px;">
+      <div class="section wiki">
+        <div class="section-header wiki"><div class="dot wiki"></div>예시 파일: wiki/pedro-overview.md</div>
+        <div class="section-body">
+          <pre style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:16px 20px; font-size:12px; line-height:1.7; font-family:'JetBrains Mono','Fira Code',monospace; color:var(--text-secondary); overflow:auto; white-space:pre;">> Source: raw/pedro-confluence-overview.md
+> Confluence: https://confluence.ea.com/spaces/RP/pages/1405722971
+
+# Pedro Overview
+
+## 프로젝트 요약
+3 vs 3 Team Play + Fair Play 기반 신규 모드. 개인 스쿼드 없음.
+
+## 마일스톤
+| 주차 | 기간  | 마일스톤                    |
+|------|-------|-----------------------------|
+|  6   | 7/13~ | DB Submit, ICBT 목업 1차    |
+|  8   | 7/27~ | SangMin 출장                |
+| 11   | 8/17~ | 1st Playtest 개발 완료      |
+
+## 관련 문서
+- [[wiki/pedro-design]]        — 화면별 기획
+- [[wiki/pedro-client]]        — Client 아키텍처
+- [[wiki/pedro-server]]        — Server 아키텍처
+- [[wiki/pedro-weekly-sync]]   — Week 1~7 결정사항</pre>
+        </div>
+      </div>
+    </div>
+  </div><!-- /slide-7 -->
+
+  <!-- ══════════ SLIDE 8 — index.md ══════════ -->
+  <div id="slide-8" class="slide">
+    <h1 class="slide-title">index.md — 네비게이션 허브</h1>
+    <p class="slide-sub">저장소 전체 구조를 안내 · LLM이 모든 답변 전 가장 먼저 읽는 파일</p>
+
+    <div class="diagram" style="max-width:760px;">
+      <div class="section infra">
+        <div class="section-header infra"><div class="dot infra"></div>예시 파일: index.md (Pedro 저장소)</div>
+        <div class="section-body">
+          <pre style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:16px 20px; font-size:12px; line-height:1.7; font-family:'JetBrains Mono','Fira Code',monospace; color:var(--text-secondary); overflow:auto; white-space:pre;"># Pedro Index
+
+## Wiki 문서 목록
+- [[wiki/pedro-overview]]              — 프로젝트 개요, 마일스톤, Confluence 구조
+- [[wiki/pedro-weekly-sync]]           — Week 1~7 결정사항 및 Action Items
+- [[wiki/pedro-design]]                — 화면별 기획 (Bootflow / Draft / Match 등)
+- [[wiki/pedro-client]]                — Client 아키텍처 및 작업 현황
+- [[wiki/pedro-server]]                — Server 아키텍처 및 작업 현황
+- [[wiki/pedro-fairplay-introduction]] — Fair Play 개념, 4대 기둥
+
+## Raw 문서 목록 (Confluence 1depth 기준)
+- [[raw/pedro-confluence-overview]]    — Project Pedro 부모 페이지
+- [[raw/pedro-weekly-sync]]            — Weekly Sync-Up Week 1~7
+- [[raw/pedro-ui-screens-data-node]]   — DataStore/Node/Event 스펙 (draft)
+
+## Working Rule
+- 새 내용은 raw에 먼저 기록 (패턴 A / B / C 중 선택)
+- 재사용 가치 있는 내용만 wiki로 승격
+- 외부 원본이 있는 raw 파일에는 source_url 필수</pre>
+        </div>
+      </div>
+    </div>
+  </div><!-- /slide-8 -->
+
+  <!-- ══════════ SLIDE 9 — log.md ══════════ -->
+  <div id="slide-9" class="slide">
+    <h1 class="slide-title">log.md — 변경 이력</h1>
+    <p class="slide-sub">생성·수정·승격 이력을 날짜순으로 기록 · 일일 점검 결과도 함께 누적</p>
+
+    <div class="diagram" style="max-width:760px;">
+      <div class="section infra">
+        <div class="section-header infra"><div class="dot infra"></div>예시 파일: log.md (Pedro 저장소)</div>
+        <div class="section-body">
+          <pre style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:16px 20px; font-size:12px; line-height:1.7; font-family:'JetBrains Mono','Fira Code',monospace; color:var(--text-secondary); overflow:auto; white-space:pre;">## 2026-07-20 (신규 페이지 수집 및 승격)
+
+### Wiki 승격 (promote)
+| 날짜       | 작업    | 원본 → 위키                           | 요약                              |
+|------------|---------|---------------------------------------|-----------------------------------|
+| 2026-07-20 | promote | raw/pedro-player → wiki/pedro-player  | 선수 Rating 1~10단계, 슬롯 스펙    |
+
+---
+
+## 2026-07-22 (일일 점검)
+
+### Wiki 유지보수 (maintenance)
+| 날짜       | 파일               | 수정 내용                                         |
+|------------|--------------------|---------------------------------------------------|
+| 2026-07-22 | wiki/pedro-overview | Confluence 구조 트리 — Server Phases 하위 Phase1/2 누락 추가 |
+
+### 일일 점검 결과
+- raw/ 승격 대상: 없음 (모든 파일 status: promoted)
+- Confluence 동기화: 구조 변경 없음 / 내용 변경 없음
+- wiki/ 깨진 링크: 없음 / 중복: 없음 / 노후화 1건 수정</pre>
+        </div>
+      </div>
+    </div>
+  </div><!-- /slide-9 -->
+
+  <!-- ══════════ SLIDE 10 — AGENTS.md ══════════ -->
+  <div id="slide-10" class="slide">
+    <h1 class="slide-title">AGENTS.md — LLM 운영 규칙</h1>
+    <p class="slide-sub">LLM이 이 저장소에서 어떻게 행동해야 하는지 정의 · 스킬·승격 기준·일일 점검 절차 포함</p>
+
+    <div class="diagram" style="max-width:760px; gap:12px;">
+      <div class="section skills">
+        <div class="section-header skills"><div class="dot skills"></div>AGENTS.md 핵심 스킬 3종</div>
+        <div class="section-body">
+          <div class="skills-row" style="flex-direction:column; gap:10px;">
+            <div class="skill-card">
+              <div class="skill-cmd">/promote</div>
+              <div class="skill-desc">
+                raw 파일 → wiki 승격 자동화.<br>
+                승격 판단 → wiki 생성 → raw 헤더(<code>status: promoted</code>) 업데이트 → index.md 링크 추가 → log.md 이력 기록 → GitLab 커밋
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-cmd">/wiki-lint</div>
+              <div class="skill-desc">
+                깨진 링크 · 노후화 문서 · source_url 누락 · promoted 헤더 불일치 · 중복 내용 일괄 점검
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-cmd">/confluence-sync</div>
+              <div class="skill-desc">
+                <code>snapshot_at</code> vs Confluence <code>Last Modified</code> 비교 → 신규 페이지 감지 → raw 수집 → wiki 반영.<br>
+                일일 점검 절차: ① git pull → ② 승격 후보 점검 → ③ confluence-sync → ④ wiki-lint → ⑤ 커밋 push
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /slide-10 -->
+
+  <!-- ══════════ SLIDE 11 — lint & promote schedule 필요성 ══════════ -->
+  <div id="slide-11" class="slide">
+    <h1 class="slide-title">왜 lint &amp; promote를 스케줄로 실행해야 하나?</h1>
+    <p class="slide-sub">사람이 매일 점검하지 않으면 지식 저장소는 빠르게 부패한다</p>
+
+    <div class="diagram" style="max-width:800px; gap:14px;">
+
+      <!-- 문제: 수동 점검의 한계 -->
+      <div class="section" style="border-color:rgba(255,123,114,0.4);">
+        <div class="section-header" style="background:rgba(255,123,114,0.08); color:#ff7b72;">
+          <div class="dot" style="background:#ff7b72;"></div>
+          수동 점검의 한계 — "나중에 해야지"는 결국 안 한다
+        </div>
+        <div class="section-body">
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
+            <div class="pattern-card" style="border-color:rgba(255,123,114,0.25);">
+              <div class="pattern-label" style="color:#ff7b72;">문제 1</div>
+              <div class="pattern-title">깨진 링크 누적</div>
+              <div class="pattern-desc">[[wiki/pedro-design-screens]] 처럼 deprecated된 파일 링크가 방치되면 LLM이 없는 문서를 참조</div>
+            </div>
+            <div class="pattern-card" style="border-color:rgba(255,123,114,0.25);">
+              <div class="pattern-label" style="color:#ff7b72;">문제 2</div>
+              <div class="pattern-title">raw 파일 방치</div>
+              <div class="pattern-desc">재사용 가치가 생긴 draft 파일이 raw에 묻혀 wiki로 승격되지 않으면 지식이 단절됨</div>
+            </div>
+            <div class="pattern-card" style="border-color:rgba(255,123,114,0.25);">
+              <div class="pattern-label" style="color:#ff7b72;">문제 3</div>
+              <div class="pattern-title">Confluence 내용 drift</div>
+              <div class="pattern-desc">원본이 바뀌었는데 wiki는 구버전 내용 그대로 → LLM이 오래된 정보로 답변</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 해결: 스케줄 자동화 -->
+      <div class="section skills">
+        <div class="section-header skills"><div class="dot skills"></div>해결 — cron이 하루 3번 자동 실행</div>
+        <div class="section-body">
+          <div style="display:grid; grid-template-columns:auto 1fr; gap:8px 18px; align-items:start;">
+            <div style="font-size:12px; font-weight:700; color:var(--c5); font-family:'JetBrains Mono',monospace; padding-top:1px;">08:00</div>
+            <div style="font-size:12px; color:var(--text-secondary);">하루 시작 전 상태 점검 — 전날 변경사항 반영 여부 확인</div>
+            <div style="font-size:12px; font-weight:700; color:var(--c5); font-family:'JetBrains Mono',monospace; padding-top:1px;">14:00</div>
+            <div style="font-size:12px; color:var(--text-secondary);">업무 시간 중 점검 — 오전에 추가된 raw 파일 승격 후보 감지</div>
+            <div style="font-size:12px; font-weight:700; color:var(--c5); font-family:'JetBrains Mono',monospace; padding-top:1px;">20:00</div>
+            <div style="font-size:12px; color:var(--text-secondary);">하루 마감 점검 — 당일 변경사항 커밋 · push, 저장소 최신 상태 유지</div>
+          </div>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <div class="file-chip">① git pull</div>
+            <div style="color:var(--arrow); align-self:center;">→</div>
+            <div class="file-chip">② 승격 후보 점검</div>
+            <div style="color:var(--arrow); align-self:center;">→</div>
+            <div class="file-chip">③ confluence-sync</div>
+            <div style="color:var(--arrow); align-self:center;">→</div>
+            <div class="file-chip">④ wiki-lint</div>
+            <div style="color:var(--arrow); align-self:center;">→</div>
+            <div class="file-chip">⑤ 커밋 &amp; push</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote">
+        💡 사람이 직접 명령하지 않아도 지식 저장소가 스스로 건강함을 유지한다 — "Set it and forget it"
+      </div>
+    </div>
+  </div><!-- /slide-11 -->
+
+  <!-- ══════════ SLIDE 12 — 실제 예제 (Slack 스크린샷 기반) ══════════ -->
+  <div id="slide-12" class="slide">
+    <h1 class="slide-title">lint &amp; promote schedule — 실제 실행 결과</h1>
+    <p class="slide-sub">2026-07-22 14:00 cron 자동 실행 결과 (Slack 스레드)</p>
+
+    <div class="diagram" style="max-width:800px; gap:12px;">
+
+      <!-- 트리거 -->
+      <div class="section" style="border-color:rgba(88,141,239,0.4);">
+        <div class="section-header" style="background:rgba(88,141,239,0.08); color:var(--c1);">
+          <div class="dot source"></div>
+          lint & promote 자동 스케쥴링
+        </div>
+        <div class="section-body">
+          <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:8px; padding:12px 16px; font-size:12px; color:var(--text-secondary); line-height:1.7;">
+            ① raw/ 폴더에서 status: promoted 헤더가 없는 파일을 찾아 승격 기준을 충족하면 wiki/ 로 승격<br>
+            ② wiki/ 파일들에서 깨진 링크, 중복 내용, 노후화 문제를 찾아 수정<br>
+            ③ 변경사항이 있으면 <code style="color:var(--c2);">[cron] YYYY-MM-DD: daily wiki maintenance</code> 형식으로 커밋 후 push
+          </div>
+        </div>
+      </div>
+
+      <!-- 실행 결과 -->
+      <div class="section wiki">
+        <div class="section-header wiki"><div class="dot wiki"></div>실행 결과 — cron 응답 요약</div>
+        <div class="section-body">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+
+            <div class="pattern-card" style="border-color:rgba(78,201,160,0.25);">
+              <div class="pattern-label" style="color:var(--c3);">① Git Pull</div>
+              <div class="pattern-desc" style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#4ec9a0;">Already up to date</div>
+            </div>
+
+            <div class="pattern-card" style="border-color:rgba(78,201,160,0.25);">
+              <div class="pattern-label" style="color:var(--c3);">② Raw 승격 후보</div>
+              <div class="pattern-desc" style="font-size:11px; line-height:1.6;">
+                <code style="color:#ff7b72;">pedro-design-screens</code> deprecated — 불필요<br>
+                <code style="color:#ffa657;">pedro-ui-screens-data-node</code> draft — NOT STARTED 항목 존재, 승격 보류<br>
+                <span style="color:var(--c3);">그 외 9개 → 이미 promoted</span>
+              </div>
+            </div>
+
+            <div class="pattern-card" style="border-color:rgba(78,201,160,0.25);">
+              <div class="pattern-label" style="color:var(--c3);">③ Confluence 동기화</div>
+              <div class="pattern-desc" style="font-size:11px; line-height:1.6;">
+                구조 변경: 없음<br>
+                내용 변경: 없음<br>
+                <span style="color:var(--c3);">snapshot_at 갱신: 5개 파일 → 2026-07-22</span>
+              </div>
+            </div>
+
+            <div class="pattern-card" style="border-color:rgba(78,201,160,0.25);">
+              <div class="pattern-label" style="color:var(--c3);">④ Wiki-lint 결과</div>
+              <div class="pattern-desc" style="font-size:11px; line-height:1.6;">
+                깨진 링크: 없음<br>
+                중복 내용: 없음<br>
+                <span style="color:#ffa657;">노후화 1건 수정</span> — <code style="font-size:10px;">wiki/pedro-overview.md</code> Server Phases 하위 Phase1/2 누락 → 추가
+              </div>
+            </div>
+
+          </div>
+
+          <div style="margin-top:12px; background:rgba(78,201,160,0.06); border:1px solid rgba(78,201,160,0.2); border-radius:8px; padding:10px 14px; font-size:12px; color:var(--text-secondary);">
+            <span style="color:var(--c3); font-weight:700;">⑤ 커밋 &amp; Push 완료</span> —
+            <code style="font-size:11px; color:var(--c2);">[cron] 2026-07-22: daily wiki maintenance</code>
+            · 7개 파일 · push ✅
+          </div>
+        </div>
+      </div>
+
+      <div class="quote">
+        💡 사람이 아무것도 하지 않아도 하루 3번 저장소가 자기 점검·수정·커밋을 완료 — 팀원은 항상 최신 wiki를 신뢰할 수 있다
+      </div>
+    </div>
+  </div><!-- /slide-12 -->
+
+</div><!-- /slides -->
+
+<!-- navigation -->
+<div class="slide-nav">
+  <button class="slide-btn active" id="btn-1"  onclick="goSlide(1)">1</button>
+  <button class="slide-btn"        id="btn-2"  onclick="goSlide(2)">2</button>
+  <button class="slide-btn"        id="btn-3"  onclick="goSlide(3)">3</button>
+  <button class="slide-btn"        id="btn-4"  onclick="goSlide(4)">4</button>
+  <button class="slide-btn"        id="btn-5"  onclick="goSlide(5)">5</button>
+  <button class="slide-btn"        id="btn-6"  onclick="goSlide(6)">6</button>
+  <button class="slide-btn"        id="btn-7"  onclick="goSlide(7)">7</button>
+  <button class="slide-btn"        id="btn-8"  onclick="goSlide(8)">8</button>
+  <button class="slide-btn"        id="btn-9"  onclick="goSlide(9)">9</button>
+  <button class="slide-btn"        id="btn-10" onclick="goSlide(10)">10</button>
+  <button class="slide-btn"        id="btn-11" onclick="goSlide(11)">11</button>
+  <button class="slide-btn"        id="btn-12" onclick="goSlide(12)">12</button>
+</div>
+
+<script>
+  const TOTAL = 12;
+  let current = 1;
+
+  function goSlide(n) {
+    if (n < 1 || n > TOTAL) return;
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.slide-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('slide-' + n).classList.add('active');
+    document.getElementById('btn-' + n).classList.add('active');
+    current = n;
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goSlide(current + 1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   goSlide(current - 1);
+  });
+</script>
+</body>
+</html>
