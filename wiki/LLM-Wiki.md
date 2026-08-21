@@ -26,6 +26,7 @@ LLM Wiki is a lightweight knowledge system that stores reusable AI and workflow 
 - `log.md`: change history
 - `AGENTS.md`: operating rules
 - `ontology/`: allowed classes and relation vocabulary
+- `entities/`: reusable people, organizations, services, use cases, and tools
 - `scripts/export_lpg.py`: rebuildable SQLite LPG projection
 
 ## Operating Model

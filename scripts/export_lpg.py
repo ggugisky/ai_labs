@@ -104,7 +104,11 @@ def build_database(root: Path, database: Path) -> tuple[int, int]:
             CREATE INDEX idx_rel_target ON relations(target_id);
             """
         )
-        documents = sorted(root.glob("raw/**/*.md")) + sorted(root.glob("wiki/**/*.md"))
+        documents = (
+            sorted(root.glob("raw/**/*.md"))
+            + sorted(root.glob("wiki/**/*.md"))
+            + sorted(root.glob("entities/**/*.md"))
+        )
         entities = {}
         edges = []
         indexed_at = datetime.now(timezone.utc).isoformat()

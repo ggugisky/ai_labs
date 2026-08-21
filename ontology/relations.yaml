@@ -7,6 +7,36 @@ relations:
     symmetric: true
   uses_tool:
     inverse: used_by
+  uses_service:
+    inverse: used_by
+  member_of:
+    inverse: has_member
+  created_by:
+    inverse: created
+  created:
+    inverse: created_by
+  owns:
+    inverse: owned_by
+  implements:
+    inverse: implemented_by
+  has_use_case:
+    inverse: use_case_for
+  interested_in:
+    inverse: relevant_to
+  presented_by:
+    inverse: presents
+  described_by:
+    inverse: describes
+  describes:
+    inverse: described_by
+  discussed_in:
+    inverse: discusses
+  implemented_by:
+    inverse: implements
+  enables:
+    inverse: built_with
+  built_with:
+    inverse: enables
   derived_from:
     inverse: source_for
   supersedes:

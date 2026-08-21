@@ -15,6 +15,7 @@ AI Labs is a biweekly AI topic sharing and discussion group.
 - `raw/`: drafts and source notes
 - `wiki/`: reviewed reusable knowledge
 - `ontology/`: allowed document classes and relation vocabulary
+- `entities/`: people, organizations, services, use cases, and tools
 - `scripts/export_lpg.py`: rebuildable SQLite LPG projection
 
 ## Current Wiki Pages

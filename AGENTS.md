@@ -28,6 +28,7 @@ This repository follows a brain-template style LLM wiki structure.
 - `index.md`: navigation and current structure.
 - `log.md`: creation, promotion, and maintenance history.
 - `ontology/`: allowed classes and relation vocabulary.
+- `entities/`: reusable people, organizations, services, use cases, and tools.
 - `scripts/`: validation and graph projection tools.
 
 ## Naming

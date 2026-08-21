@@ -8,6 +8,8 @@ area: ai-labs
 relations:
   - type: related_to
     target: ailabs:wiki/llm-wiki
+  - type: describes
+    target: ailabs:organization/ai-labs
 ---
 
 # AI Labs

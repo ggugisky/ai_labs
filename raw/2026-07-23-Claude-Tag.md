@@ -5,8 +5,8 @@ status: source
 created: 2026-07-23
 area: ai-labs
 relations:
-  - type: discusses
-    target: ailabs:wiki/ai-labs
+  - type: describes
+    target: ailabs:tool/claude-tag
 ---
 
 # Claude Tag 분석

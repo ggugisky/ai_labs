@@ -8,11 +8,17 @@ classes:
   Concept:
     description: A reusable idea, pattern, or method.
   Tool:
-    description: An AI tool, service, library, or product.
+    description: An AI tool, library, model, platform, or product component.
+  Service:
+    description: A user-facing service or product built with tools and concepts.
+  UseCase:
+    description: A concrete problem or workflow addressed by a service or tool.
   Project:
     description: A project or product discussed by AI Labs.
   Person:
     description: An AI Labs participant or referenced person.
+  Organization:
+    description: A community, team, company, or other organizational group.
   Decision:
     description: A reviewed choice or conclusion.
   Source:
