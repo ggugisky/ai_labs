@@ -1,0 +1,19 @@
+version: 1
+namespace: ailabs
+relations:
+  discusses:
+    inverse: discussed_in
+  related_to:
+    symmetric: true
+  uses_tool:
+    inverse: used_by
+  derived_from:
+    inverse: source_for
+  supersedes:
+    inverse: superseded_by
+  attended_by:
+    inverse: attends
+  supports:
+    inverse: supported_by
+  contradicts:
+    symmetric: true

@@ -10,6 +10,16 @@ This repository follows a brain-template style LLM wiki structure.
 - Keep links between related wiki pages.
 - Record structural changes in `log.md`.
 
+## Knowledge Graph Metadata
+
+- Markdown/YAML in this repository is the source of truth.
+- Stable reusable documents should declare `id`, `type`, `status`, and `area`.
+- Use `relations` for typed links. Keep relation types within `ontology/relations.yaml`.
+- Use `ontology/classes.yaml` for the allowed document/entity types.
+- Generated LPG databases are disposable projections and must not be committed.
+- New or LLM-extracted relations should include `confidence`, `evidence`, and
+  `review_status` when they are not manually verified.
+
 ## Folder Roles
 
 - `raw/meeting/`: shared meeting notes by date.
@@ -17,6 +27,8 @@ This repository follows a brain-template style LLM wiki structure.
 - `wiki/`: reviewed summaries and reusable knowledge.
 - `index.md`: navigation and current structure.
 - `log.md`: creation, promotion, and maintenance history.
+- `ontology/`: allowed classes and relation vocabulary.
+- `scripts/`: validation and graph projection tools.
 
 ## Naming
 

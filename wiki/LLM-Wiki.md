@@ -1,8 +1,15 @@
 ---
+id: ailabs:wiki/llm-wiki
+type: Concept
 tags: [ai, llm, wiki, knowledge-base]
 created: 2026-07-08
-status: draft
+status: stable
 area: ai-labs
+relations:
+  - type: derived_from
+    target: ailabs:raw/meeting/20260626
+  - type: related_to
+    target: ailabs:wiki/ai-labs
 ---
 
 # LLM Wiki
@@ -18,6 +25,8 @@ LLM Wiki is a lightweight knowledge system that stores reusable AI and workflow 
 - `index.md`: navigation
 - `log.md`: change history
 - `AGENTS.md`: operating rules
+- `ontology/`: allowed classes and relation vocabulary
+- `scripts/export_lpg.py`: rebuildable SQLite LPG projection
 
 ## Operating Model
 
@@ -25,6 +34,14 @@ LLM Wiki is a lightweight knowledge system that stores reusable AI and workflow 
 - Promote stable knowledge into `wiki/`.
 - Link related pages.
 - Keep the repository easy to navigate.
+
+## Knowledge Graph Layer
+
+The repository keeps Markdown/YAML in Git as its source of truth. Stable
+documents use `id`, `type`, `status`, `area`, and typed `relations` metadata.
+The `ontology/` vocabulary constrains those values, while
+`scripts/export_lpg.py` creates a disposable SQLite projection for graph
+queries and future GraphRAG use.
 
 ## Why It Matters
 
@@ -35,4 +52,3 @@ LLM Wiki is a lightweight knowledge system that stores reusable AI and workflow 
 ## Related Pages
 
 - [[AI-Labs]]
-
