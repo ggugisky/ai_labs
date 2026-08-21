@@ -22,6 +22,11 @@ AI Labs is a biweekly AI topic sharing and discussion group.
 
 - [[wiki/AI-Labs]] — AI Labs concept, cadence, and session style
 - [[wiki/LLM-Wiki]] — LLM Wiki structure, usage, and operating model
+- [[wiki/Connect-AI]] — local IDE agent harness and knowledge structuring
+- [[wiki/Claude-Tag]] — Slack-based organizational collaboration agent
+- [[wiki/Pi-Coding-Agent]] — minimal, extensible coding agent harness
+- [[wiki/Grok-Bot]] — computer-use AI teammates and routines
+- [[wiki/Aside]] — browser agent with local memory and approval controls
 - [[raw/meeting/20260626]] — first AI Labs meeting note
 
 ## Graph Model
