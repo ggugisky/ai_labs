@@ -1,3 +1,14 @@
+---
+id: ailabs:raw/2026-07-23-open-knowledge-format
+type: Concept
+status: source
+created: 2026-07-23
+area: ai-labs
+relations:
+  - type: supports
+    target: ailabs:wiki/llm-wiki
+---
+
 # Open Knowledge Format 분석
 
 - Source: [GeekNews topic 30622](https://news.hada.io/topic?id=30622)

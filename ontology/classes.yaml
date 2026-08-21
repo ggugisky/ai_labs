@@ -1,0 +1,19 @@
+version: 1
+namespace: ailabs
+classes:
+  Document:
+    description: A source note, meeting note, or reviewed wiki page.
+  Meeting:
+    description: A dated AI Labs meeting record.
+  Concept:
+    description: A reusable idea, pattern, or method.
+  Tool:
+    description: An AI tool, service, library, or product.
+  Project:
+    description: A project or product discussed by AI Labs.
+  Person:
+    description: An AI Labs participant or referenced person.
+  Decision:
+    description: A reviewed choice or conclusion.
+  Source:
+    description: An external source or reference artifact.

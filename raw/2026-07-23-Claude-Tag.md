@@ -1,3 +1,14 @@
+---
+id: ailabs:raw/2026-07-23-claude-tag
+type: Tool
+status: source
+created: 2026-07-23
+area: ai-labs
+relations:
+  - type: discusses
+    target: ailabs:wiki/ai-labs
+---
+
 # Claude Tag 분석
 
 - Source: [GeekNews topic 30809](https://news.hada.io/topic?id=30809)

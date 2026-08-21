@@ -13,3 +13,9 @@
 - Linked the note from `wiki/AI-Labs.md` as a discussion agenda item.
 - Added `raw/2026-07-23-Claude-Tag.md` with an analysis of Anthropic's Claude Tag article.
 - Linked the note from `wiki/AI-Labs.md` as a discussion agenda item.
+
+## 2026-08-21
+
+- Added ontology classes and relation vocabulary under `ontology/`.
+- Added stable IDs and typed relations to existing wiki and meeting documents.
+- Added `scripts/export_lpg.py` to build a disposable SQLite graph projection.

@@ -1,8 +1,13 @@
 ---
+id: ailabs:wiki/ai-labs
+type: Concept
 tags: [ai, community, meeting]
 created: 2026-07-08
 status: stable
 area: ai-labs
+relations:
+  - type: related_to
+    target: ailabs:wiki/llm-wiki
 ---
 
 # AI Labs
