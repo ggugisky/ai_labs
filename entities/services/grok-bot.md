@@ -2,11 +2,13 @@
 id: ailabs:service/grok-bot
 type: Service
 title: Grok Bot
-status: referenced
+status: draft
 area: ai-labs
 relations:
   - type: described_by
     target: ailabs:raw/meeting/20260821
+  - type: described_by
+    target: ailabs:wiki/grok-bot
 ---
 
 # Grok Bot

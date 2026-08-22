@@ -2,7 +2,7 @@
 id: ailabs:person/kalsen
 type: Person
 title: Kalsen
-status: provisional
+status: draft
 area: ai-labs
 relations:
   - type: member_of

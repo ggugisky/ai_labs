@@ -1,0 +1,32 @@
+version: 1
+promotions:
+  - entity: entities/services/dalar.md
+    wiki: wiki/Dalar.md
+    sources: [ailabs:raw/meeting/20260807]
+  - entity: entities/services/lampas.md
+    wiki: wiki/Lampas.md
+    sources: [ailabs:raw/meeting/20260807]
+  - entity: entities/services/modu-ui-gaesori.md
+    wiki: null
+    sources: [ailabs:raw/meeting/20260821]
+  - entity: entities/services/aside.md
+    wiki: wiki/Aside.md
+    sources: [ailabs:raw/meeting/20260821]
+  - entity: entities/services/grok-bot.md
+    wiki: wiki/Grok-Bot.md
+    sources: [ailabs:raw/meeting/20260821]
+  - entity: entities/tools/connect-ai.md
+    wiki: wiki/Connect-AI.md
+    sources: [ailabs:raw/meeting/20260821]
+  - entity: entities/tools/claude-tag.md
+    wiki: wiki/Claude-Tag.md
+    sources: [ailabs:raw/meeting/20260821]
+  - entity: entities/tools/pi-coding-agent.md
+    wiki: wiki/Pi-Coding-Agent.md
+    sources: [ailabs:raw/meeting/20260821]
+  - entity: entities/tools/graphify.md
+    wiki: wiki/Graphify.md
+    sources: [ailabs:raw/meeting/20260724]
+  - entity: entities/tools/hermes-agent.md
+    wiki: wiki/Hermes-Agent.md
+    sources: [ailabs:raw/meeting/20260626]

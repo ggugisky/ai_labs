@@ -2,13 +2,15 @@
 id: ailabs:tool/graphify
 type: Tool
 title: Graphify
-status: referenced
+status: draft
 area: ai-labs
 relations:
   - type: described_by
     target: ailabs:raw/meeting/20260724
   - type: supports
     target: ailabs:use-case/knowledge-navigation
+  - type: described_by
+    target: ailabs:wiki/graphify
 ---
 
 # Graphify

@@ -2,11 +2,13 @@
 id: ailabs:service/aside
 type: Service
 title: Aside
-status: referenced
+status: draft
 area: ai-labs
 relations:
   - type: described_by
     target: ailabs:raw/meeting/20260821
+  - type: described_by
+    target: ailabs:wiki/aside
 ---
 
 # Aside

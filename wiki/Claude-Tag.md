@@ -10,6 +10,16 @@ relations:
     target: ailabs:raw/meeting/20260821
   - type: derived_from
     target: ailabs:raw/2026-07-23-claude-tag
+  - type: describes
+    target: ailabs:tool/claude-tag
+provenance:
+  sources:
+    - id: ailabs:raw/2026-07-23-claude-tag
+      role: analysis
+      captured_at: 2026-07-23
+    - url: https://www.anthropic.com/news/introducing-claude-tag
+      role: official
+      accessed_at: 2026-08-22
 ---
 
 # Claude Tag

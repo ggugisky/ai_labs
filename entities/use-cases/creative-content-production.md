@@ -2,7 +2,7 @@
 id: ailabs:use-case/creative-content-production
 type: UseCase
 title: AI 기반 크리에이티브 콘텐츠 제작
-status: referenced
+status: draft
 area: ai-labs
 relations:
   - type: supports

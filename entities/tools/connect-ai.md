@@ -2,11 +2,13 @@
 id: ailabs:tool/connect-ai
 type: Tool
 title: connect-ai
-status: referenced
+status: draft
 area: ai-labs
 relations:
   - type: discussed_in
     target: ailabs:raw/meeting/20260821
+  - type: described_by
+    target: ailabs:wiki/connect-ai
 ---
 
 # connect-ai

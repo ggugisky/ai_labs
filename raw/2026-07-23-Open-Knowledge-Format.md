@@ -1,7 +1,7 @@
 ---
 id: ailabs:raw/2026-07-23-open-knowledge-format
 type: Concept
-status: source
+status: captured
 created: 2026-07-23
 area: ai-labs
 relations:

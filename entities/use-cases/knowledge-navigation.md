@@ -2,7 +2,7 @@
 id: ailabs:use-case/knowledge-navigation
 type: UseCase
 title: 지식 저장소 탐색과 관계 추적
-status: active
+status: stable
 area: ai-labs
 relations:
   - type: implemented_by

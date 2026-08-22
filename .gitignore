@@ -1,4 +1,5 @@
 .obsidian/**
+.DS_Store
 .runtime/
 __pycache__/
 *.py[cod]

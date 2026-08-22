@@ -2,7 +2,7 @@
 id: ailabs:person/kevin
 type: Person
 title: Kevin
-status: provisional
+status: draft
 area: ai-labs
 relations:
   - type: member_of

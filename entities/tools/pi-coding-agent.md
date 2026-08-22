@@ -2,11 +2,13 @@
 id: ailabs:tool/pi-coding-agent
 type: Tool
 title: Pi Coding Agent
-status: referenced
+status: draft
 area: ai-labs
 relations:
   - type: described_by
     target: ailabs:raw/meeting/20260821
+  - type: described_by
+    target: ailabs:wiki/pi-coding-agent
 ---
 
 # Pi Coding Agent

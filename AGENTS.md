@@ -16,9 +16,12 @@ This repository follows a brain-template style LLM wiki structure.
 - Stable reusable documents should declare `id`, `type`, `status`, and `area`.
 - Use `relations` for typed links. Keep relation types within `ontology/relations.yaml`.
 - Use `ontology/classes.yaml` for the allowed document/entity types.
+- Use `ontology/statuses.yaml` for the document lifecycle.
 - Generated LPG databases are disposable projections and must not be committed.
 - New or LLM-extracted relations should include `confidence`, `evidence`, and
   `review_status` when they are not manually verified.
+- Use `provenance.sources` for source IDs/URLs and capture/access dates.
+- Wiki Service/Tool pages must link to their canonical entity with `describes`.
 
 ## Folder Roles
 
@@ -30,6 +33,7 @@ This repository follows a brain-template style LLM wiki structure.
 - `ontology/`: allowed classes and relation vocabulary.
 - `entities/`: reusable people, organizations, services, use cases, and tools.
 - `scripts/`: validation and graph projection tools.
+- `promotions.yaml`: reviewed raw-to-entity/wiki promotion manifest.
 
 ## Naming
 
@@ -45,3 +49,5 @@ This repo is for AI Labs meeting notes and the LLM Wiki structure around them.
 ## Lint And Promote Workflow
 
 - After completing `lint` and `promote`, run the validation checks, commit the changes, and push them to `origin/main`.
+- Standard commands are `python scripts/lint.py`, `python scripts/promote.py`,
+  and `python scripts/build_index.py`.

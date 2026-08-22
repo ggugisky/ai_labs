@@ -2,11 +2,13 @@
 id: ailabs:tool/hermes-agent
 type: Tool
 title: Hermes Agent
-status: referenced
+status: draft
 area: ai-labs
 relations:
   - type: described_by
     target: ailabs:raw/meeting/20260626
+  - type: described_by
+    target: ailabs:wiki/hermes-agent
 ---
 
 # Hermes Agent

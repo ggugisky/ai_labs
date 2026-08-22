@@ -8,6 +8,16 @@ area: ai-labs
 relations:
   - type: discussed_in
     target: ailabs:raw/meeting/20260626
+  - type: describes
+    target: ailabs:tool/hermes-agent
+provenance:
+  sources:
+    - id: ailabs:raw/meeting/20260626
+      role: meeting
+      captured_at: 2026-06-26
+    - url: https://hermes-agent.nousresearch.com/docs/
+      role: official
+      accessed_at: 2026-08-22
 ---
 
 # Hermes Agent

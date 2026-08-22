@@ -2,7 +2,7 @@
 id: ailabs:person/ggugisky
 type: Person
 title: ggugisky
-status: provisional
+status: draft
 area: ai-labs
 relations:
   - type: member_of

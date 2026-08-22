@@ -2,7 +2,7 @@
 id: ailabs:service/ssot-viewer
 type: Service
 title: SSOT Viewer
-status: active
+status: stable
 area: ai-labs
 relations:
   - type: created_by

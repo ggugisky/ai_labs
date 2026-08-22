@@ -2,7 +2,7 @@
 id: ailabs:person/ulaulareyo
 type: Person
 title: ulaulareyo
-status: provisional
+status: draft
 area: ai-labs
 relations:
   - type: member_of

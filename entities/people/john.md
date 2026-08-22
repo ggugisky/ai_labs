@@ -2,7 +2,7 @@
 id: ailabs:person/john
 type: Person
 title: John
-status: provisional
+status: draft
 area: ai-labs
 relations:
   - type: member_of

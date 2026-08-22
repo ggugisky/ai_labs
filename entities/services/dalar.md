@@ -2,13 +2,15 @@
 id: ailabs:service/dalar
 type: Service
 title: Dalar
-status: referenced
+status: draft
 area: ai-labs
 relations:
   - type: has_use_case
     target: ailabs:use-case/creative-content-production
   - type: described_by
     target: ailabs:raw/meeting/20260807
+  - type: described_by
+    target: ailabs:wiki/dalar
 ---
 
 # Dalar

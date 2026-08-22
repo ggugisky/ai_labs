@@ -8,6 +8,16 @@ area: ai-labs
 relations:
   - type: discussed_in
     target: ailabs:raw/meeting/20260807
+  - type: describes
+    target: ailabs:service/lampas
+provenance:
+  sources:
+    - id: ailabs:raw/meeting/20260807
+      role: meeting
+      captured_at: 2026-08-07
+    - url: https://models.lampas.io/
+      role: official
+      accessed_at: 2026-08-22
 ---
 
 # Lampas
@@ -58,4 +68,3 @@ SDK 소개에는 actor를 만들고 선택한 뒤 preset과 transform을 적용�
 ## AI Labs 시사점
 
 Lampas는 `모델을 직접 만드는 것`보다 `여러 모델을 조합해 목적별 생산 파이프라인을 상품화하는 것`에 초점을 둔 사례다. 성환님의 콘텐츠 자동화 하네스와 결합하면 시장 조사와 콘텐츠 형식 분석을 앞단에 두고, Lampas식 생성·편집 pipeline을 뒷단에 붙이는 구조를 생각할 수 있다.
-

@@ -2,13 +2,15 @@
 id: ailabs:tool/claude-tag
 type: Tool
 title: Claude Tag
-status: referenced
+status: draft
 area: ai-labs
 relations:
   - type: described_by
     target: ailabs:raw/2026-07-23-claude-tag
   - type: discussed_in
     target: ailabs:raw/meeting/20260821
+  - type: described_by
+    target: ailabs:wiki/claude-tag
 ---
 
 # Claude Tag

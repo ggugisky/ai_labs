@@ -8,6 +8,16 @@ area: ai-labs
 relations:
   - type: discussed_in
     target: ailabs:raw/meeting/20260807
+  - type: describes
+    target: ailabs:service/dalar
+provenance:
+  sources:
+    - id: ailabs:raw/meeting/20260807
+      role: meeting
+      captured_at: 2026-08-07
+    - url: https://www.dalar.ai/
+      role: official
+      accessed_at: 2026-08-22
 ---
 
 # Dalar
@@ -54,4 +64,3 @@ Dalar는 자율 에이전트라기보다 `브랜드 콘텐츠 생성 스튜디�
 ## AI Labs 시사점
 
 Dalar의 핵심은 하네스의 복잡성을 사용자에게 노출하지 않고 `의도 입력 → 레퍼런스 유지 → 반복 생성 → 결과 선택`으로 감추는 제품화 방식이다. AI Labs에서 개발 중인 서비스도 내부 에이전트 구조와 최종 사용자 경험을 분리할 필요가 있다.
-

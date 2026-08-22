@@ -33,3 +33,8 @@
 - Added missing service relations to the 2026-07-24 and 2026-08-21 meeting notes.
 - Normalized reusable wiki/raw metadata and extended the ontology with the `owned_by` inverse relation.
 - Ran metadata lint successfully and rebuilt the disposable SQLite LPG projection.
+- Added the document lifecycle contract in `ontology/statuses.yaml` and normalized active/source/provisional statuses.
+- Added `promotions.yaml` plus `scripts/lint.py` and `scripts/promote.py` to validate raw-to-entity/wiki coverage.
+- Linked canonical entities and wiki pages with `describes`/`described_by`, and recorded source provenance on service/tool wiki pages.
+- Added generated wiki/entity catalogs through `scripts/build_index.py`; README and index navigation are now reproducible.
+- Excluded navigation README files from the LPG projection and added `.DS_Store` to `.gitignore`.

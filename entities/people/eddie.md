@@ -2,7 +2,7 @@
 id: ailabs:person/eddie
 type: Person
 title: Eddie
-status: provisional
+status: draft
 area: ai-labs
 relations:
   - type: member_of

@@ -1,0 +1,14 @@
+version: 1
+statuses:
+  captured:
+    description: Raw material captured from a meeting or external source.
+  draft:
+    description: Candidate knowledge or entity not yet fully reviewed.
+  reviewed:
+    description: Human-reviewed reusable knowledge.
+  stable:
+    description: Reusable knowledge or active entity treated as canonical.
+  superseded:
+    description: Replaced by a newer canonical document.
+  archived:
+    description: Retained for history but not used as current knowledge.

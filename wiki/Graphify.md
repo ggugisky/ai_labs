@@ -10,6 +10,16 @@ relations:
     target: ailabs:raw/meeting/20260724
   - type: related_to
     target: ailabs:wiki/llm-wiki
+  - type: describes
+    target: ailabs:tool/graphify
+provenance:
+  sources:
+    - id: ailabs:raw/meeting/20260724
+      role: meeting
+      captured_at: 2026-07-24
+    - url: https://graphify.com/docs
+      role: official
+      accessed_at: 2026-08-22
 ---
 
 # Graphify
@@ -64,4 +74,3 @@ LLM Wiki가 원문을 구조화된 Markdown 문서로 정리해 에이전트가 
 ## AI Labs 시사점
 
 Graphify는 현재 AI Labs의 `raw/wiki` 구조와 직접 연결된다. 원문을 Markdown/Git에 보존하고, Graphify를 구조 탐색 계층으로 추가하면 LLM Wiki의 재탐색 비용과 관계 검색 한계를 보완할 수 있다. 다만 raw와 graph의 source of truth를 명확히 분리해야 한다.
-

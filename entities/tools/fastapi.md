@@ -2,7 +2,7 @@
 id: ailabs:tool/fastapi
 type: Tool
 title: FastAPI
-status: active
+status: stable
 area: ai-labs
 relations:
   - type: enables

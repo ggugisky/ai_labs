@@ -8,6 +8,16 @@ area: ai-labs
 relations:
   - type: discussed_in
     target: ailabs:raw/meeting/20260821
+  - type: describes
+    target: ailabs:service/grok-bot
+provenance:
+  sources:
+    - id: ailabs:raw/meeting/20260821
+      role: meeting
+      captured_at: 2026-08-21
+    - url: https://x.ai/bot
+      role: official
+      accessed_at: 2026-08-22
 ---
 
 # Grok Bot

@@ -2,7 +2,7 @@
 id: ailabs:service/modu-ui-gaesori
 type: Service
 title: 모두의 개소리
-status: referenced
+status: draft
 area: ai-labs
 relations:
   - type: has_use_case
