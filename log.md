@@ -24,3 +24,5 @@
 - Added `scripts/export_lpg.py` to build a disposable SQLite graph projection.
 - Added wiki analyses for the five services listed in `raw/meeting/20260821.md`: Connect AI, Claude Tag, Pi, Grok Bot, and Aside.
 - Linked the five service pages from `wiki/README.md` and `index.md`.
+- Added wiki analyses for Dalar, Lampas, Graphify, and Hermes Agent found in earlier AI Labs meeting notes.
+- Linked the additional service pages from `wiki/README.md` and `index.md`.

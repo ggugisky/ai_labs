@@ -27,6 +27,10 @@ AI Labs is a biweekly AI topic sharing and discussion group.
 - [[wiki/Pi-Coding-Agent]] — minimal, extensible coding agent harness
 - [[wiki/Grok-Bot]] — computer-use AI teammates and routines
 - [[wiki/Aside]] — browser agent with local memory and approval controls
+- [[wiki/Dalar]] — conversational brand content generation studio
+- [[wiki/Lampas]] — generative model composition and media workflow platform
+- [[wiki/Graphify]] — knowledge graph layer for AI coding assistants
+- [[wiki/Hermes-Agent]] — self-improving, persistent-memory agent
 - [[raw/meeting/20260626]] — first AI Labs meeting note
 
 ## Graph Model
