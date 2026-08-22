@@ -1,0 +1,15 @@
+{
+  "name": "ai-labs-relations",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "esbuild main.ts --bundle --external:obsidian --format=cjs --platform=browser --target=es2018 --outfile=main.js",
+    "dev": "esbuild main.ts --bundle --external:obsidian --format=cjs --platform=browser --target=es2018 --outfile=main.js --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.24.0",
+    "obsidian": "^1.7.2",
+    "typescript": "^5.7.0"
+  }
+}

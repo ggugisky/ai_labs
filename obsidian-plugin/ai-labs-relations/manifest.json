@@ -1,0 +1,9 @@
+{
+  "id": "ai-labs-relations",
+  "name": "AI Labs Relations",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Render AI Labs YAML relations as navigable links in Obsidian reading view.",
+  "author": "AI Labs",
+  "isDesktopOnly": false
+}

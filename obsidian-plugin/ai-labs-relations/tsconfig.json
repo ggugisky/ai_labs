@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "obsidian": ["node_modules/obsidian"] },
+    "typeRoots": ["node_modules/@types", "node_modules/obsidian"],
+    "strict": true,
+    "skipLibCheck": true,
+    "target": "es2018",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "useDefineForClassFields": true,
+    "importsNotUsedAsValues": "remove",
+    "inlineSourceMap": true,
+    "inlineSources": true
+  },
+  "include": ["main.ts"]
+}

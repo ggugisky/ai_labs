@@ -17,6 +17,7 @@ This repository stores AI Labs meeting notes in a brain-template style LLM Wiki 
 - `scripts/promote.py`: promotion coverage validation
 - `scripts/build_index.py`: generated navigation indexes
 - `scripts/export_lpg.py`: disposable SQLite graph projection
+- `obsidian-plugin/ai-labs-relations/`: Obsidian Reading view renderer for YAML relations
 
 ## Start Here
 

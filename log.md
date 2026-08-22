@@ -38,3 +38,4 @@
 - Linked canonical entities and wiki pages with `describes`/`described_by`, and recorded source provenance on service/tool wiki pages.
 - Added generated wiki/entity catalogs through `scripts/build_index.py`; README and index navigation are now reproducible.
 - Excluded navigation README files from the LPG projection and added `.DS_Store` to `.gitignore`.
+- Added the `obsidian-plugin/ai-labs-relations` presentation layer, which renders YAML relations as navigable links in Reading view without changing the source metadata model.

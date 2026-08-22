@@ -34,6 +34,7 @@ This repository follows a brain-template style LLM wiki structure.
 - `entities/`: reusable people, organizations, services, use cases, and tools.
 - `scripts/`: validation and graph projection tools.
 - `promotions.yaml`: reviewed raw-to-entity/wiki promotion manifest.
+- `obsidian-plugin/ai-labs-relations/`: Obsidian presentation layer for relation metadata.
 
 ## Naming
 

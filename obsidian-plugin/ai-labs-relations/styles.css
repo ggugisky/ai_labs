@@ -1,0 +1,19 @@
+.ai-labs-relations {
+  margin-top: 2em;
+  padding: 0.75em 1em;
+  border-left: 3px solid var(--interactive-accent);
+  background: var(--background-secondary);
+}
+
+.ai-labs-relations .callout-title {
+  font-weight: 600;
+  margin-bottom: 0.4em;
+}
+
+.ai-labs-relations-list {
+  margin: 0;
+}
+
+.ai-labs-relations-list code {
+  color: var(--text-muted);
+}
