@@ -26,3 +26,10 @@
 - Linked the five service pages from `wiki/README.md` and `index.md`.
 - Added wiki analyses for Dalar, Lampas, Graphify, and Hermes Agent found in earlier AI Labs meeting notes.
 - Linked the additional service pages from `wiki/README.md` and `index.md`.
+
+## 2026-08-22
+
+- Promoted Pi, Grok Bot, Aside, Graphify, Hermes Agent, and 모두의 개소리 into `entities/`.
+- Added missing service relations to the 2026-07-24 and 2026-08-21 meeting notes.
+- Normalized reusable wiki/raw metadata and extended the ontology with the `owned_by` inverse relation.
+- Ran metadata lint successfully and rebuilt the disposable SQLite LPG projection.

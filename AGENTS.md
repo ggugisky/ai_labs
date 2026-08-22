@@ -41,3 +41,7 @@ This repository follows a brain-template style LLM wiki structure.
 ## Repo Scope
 
 This repo is for AI Labs meeting notes and the LLM Wiki structure around them.
+
+## Lint And Promote Workflow
+
+- After completing `lint` and `promote`, run the validation checks, commit the changes, and push them to `origin/main`.

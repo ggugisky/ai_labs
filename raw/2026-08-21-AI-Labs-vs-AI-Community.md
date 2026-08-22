@@ -1,3 +1,14 @@
+---
+id: ailabs:raw/2026-08-21-ai-labs-vs-ai-community
+type: Decision
+status: reviewed
+created: 2026-08-21
+area: ai-labs
+relations:
+  - type: related_to
+    target: ailabs:wiki/ai-labs
+---
+
 # AI Labs와 AI Community 구분
 
 ## 핵심 원칙

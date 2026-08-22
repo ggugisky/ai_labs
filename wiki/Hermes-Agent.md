@@ -1,6 +1,6 @@
 ---
 id: ailabs:wiki/hermes-agent
-type: Agent
+type: Tool
 tags: [ai, agent, memory, skills, automation, multi-channel]
 created: 2026-08-22
 status: reviewed
@@ -68,4 +68,3 @@ Nous Portal을 사용하면 하나의 OAuth와 subscription으로 모델 및 web
 ## AI Labs 시사점
 
 첫 미팅에서 Hermes Agent를 LLM Wiki와 함께 이야기한 이유는 `기억하는 에이전트`와 `검토 가능한 지식 저장소`의 결합 가능성 때문이다. AI Labs의 raw/wiki 구조를 Hermes의 memory·skills와 연결할 때는 자동 기록과 공식 지식 승격을 분리하는 운영 규칙이 핵심이다.
-

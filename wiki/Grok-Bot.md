@@ -1,8 +1,13 @@
 ---
+id: ailabs:wiki/grok-bot
+type: Service
 tags: [ai, agent, computer-use, automation, xai]
 created: 2026-08-21
 status: reviewed
 area: ai-labs
+relations:
+  - type: discussed_in
+    target: ailabs:raw/meeting/20260821
 ---
 
 # Grok Bot
@@ -46,4 +51,3 @@ Grok Bot은 모든 서비스를 API로 연결하는 대신, 사용자가 브라�
 ## AI Labs 시사점
 
 Grok Bot은 `agent = model + tools`를 넘어 `agent = model + computer + account + routine`으로 확장되는 사례다. Margaret의 adapter나 Gateway에서 브라우저·외부 계정을 연결할 때, 계정별 scope와 승인 상태를 세션의 1급 정보로 관리해야 한다는 점을 보여준다.
-

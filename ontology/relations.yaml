@@ -17,6 +17,8 @@ relations:
     inverse: created_by
   owns:
     inverse: owned_by
+  owned_by:
+    inverse: owns
   implements:
     inverse: implemented_by
   has_use_case:

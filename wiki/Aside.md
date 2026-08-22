@@ -1,8 +1,13 @@
 ---
+id: ailabs:wiki/aside
+type: Service
 tags: [ai, agent, browser, computer-use, privacy, automation]
 created: 2026-08-21
 status: reviewed
 area: ai-labs
+relations:
+  - type: discussed_in
+    target: ailabs:raw/meeting/20260821
 ---
 
 # Aside
@@ -56,4 +61,3 @@ Aside는 로그인된 웹사이트와 로컬 파일을 직접 다루는 브라�
 ## AI Labs 시사점
 
 Aside는 AI 에이전트에서 보안이 단순한 prompt 정책이 아니라 credential vault, scoped access, approval, audit log의 조합이라는 점을 잘 보여준다. 외부 서비스 연동을 다루는 Margaret Gateway의 approval/HITL 설계와 비교하기 좋은 사례다.
-

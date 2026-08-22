@@ -1,8 +1,15 @@
 ---
+id: ailabs:wiki/claude-tag
+type: Tool
 tags: [ai, agent, collaboration, slack, memory, governance]
 created: 2026-08-21
 status: reviewed
 area: ai-labs
+relations:
+  - type: discussed_in
+    target: ailabs:raw/meeting/20260821
+  - type: derived_from
+    target: ailabs:raw/2026-07-23-claude-tag
 ---
 
 # Claude Tag
@@ -64,4 +71,3 @@ Claude Tag의 핵심은 모델 성능보다 `identity + access scope + shared me
 - 개인 메모리와 채널 메모리를 어떤 규칙으로 분리할 것인가?
 - Slack 스레드에 남은 결과를 공식 지식으로 승격하는 기준은 무엇인가?
 - 조직용 에이전트의 외부 실행은 어떤 작업부터 승인 대상으로 둘 것인가?
-

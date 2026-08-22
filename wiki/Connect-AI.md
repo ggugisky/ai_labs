@@ -1,8 +1,13 @@
 ---
+id: ailabs:wiki/connect-ai
+type: Tool
 tags: [ai, agent, harness, local, coding]
 created: 2026-08-21
 status: reviewed
 area: ai-labs
+relations:
+  - type: discussed_in
+    target: ailabs:raw/meeting/20260821
 ---
 
 # Connect AI
@@ -66,4 +71,3 @@ Connect AI는 AI Labs가 실험하는 개인 하네스와 가장 직접적으로
 - 실패한 기록과 검증된 지식을 어떻게 분리할 것인가?
 - 로컬 모델과 클라우드 모델을 작업 유형별로 어떻게 라우팅할 것인가?
 - 에이전트별 권한과 파일 접근 범위를 어떻게 제한할 것인가?
-

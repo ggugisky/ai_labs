@@ -1,8 +1,13 @@
 ---
+id: ailabs:wiki/pi-coding-agent
+type: Tool
 tags: [ai, agent, harness, coding, extensibility]
 created: 2026-08-21
 status: reviewed
 area: ai-labs
+relations:
+  - type: discussed_in
+    target: ailabs:raw/meeting/20260821
 ---
 
 # Pi Coding Agent
@@ -64,4 +69,3 @@ Pi는 AI Labs의 “하네스를 직접 만든다”는 방향과 잘 맞는다.
 - Pi: 최소 코어와 확장 API를 제공하는 조립형 coding agent
 
 둘 다 하네스 중심이지만, Connect AI가 완성된 지식·IDE 경험을 제공하려는 쪽이라면 Pi는 사용자가 원하는 실행 모델을 직접 설계하도록 더 많이 위임한다.
-
