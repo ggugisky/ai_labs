@@ -49,6 +49,8 @@ This repo is for AI Labs meeting notes and the LLM Wiki structure around them.
 
 ## Lint And Promote Workflow
 
+- For all Git authentication to the knowledge repository, always use the workspace deploy key at `/workspaces/C0BAPKZUJ5D/.ssh/deploy_key` with `IdentitiesOnly=yes`.
+- Never print, commit, or expose the private key contents.
 - After completing `lint` and `promote`, run the validation checks, commit the changes, and push them to `origin/main`.
 - Standard commands are `python scripts/lint.py`, `python scripts/promote.py`,
   and `python scripts/build_index.py`.
