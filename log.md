@@ -1,3 +1,9 @@
+# 2026-08-29
+
+- Added the Crack service entity, raw analysis, and reviewed wiki page.
+- Linked Crack to the creative-content use case and existing AI Labs services/tools.
+- Recorded strategy hypotheses connecting Crack with 모두의 개소리, Dalar, Lampas, connect-ai, and SSOT Viewer.
+
 # AI Labs Log
 
 ## 2026-07-08

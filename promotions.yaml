@@ -1,5 +1,8 @@
 version: 1
 promotions:
+  - entity: entities/services/crack.md
+    wiki: wiki/Crack.md
+    sources: [ailabs:raw/2026-08-29-crack]
   - entity: entities/services/dalar.md
     wiki: wiki/Dalar.md
     sources: [ailabs:raw/meeting/20260807]

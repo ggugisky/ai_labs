@@ -26,6 +26,7 @@ AI Labs is a biweekly AI topic sharing and discussion group.
 - [[wiki/Aside]] — Aside
 - [[wiki/Claude-Tag]] — Claude Tag
 - [[wiki/Connect-AI]] — Connect AI
+- [[wiki/Crack]] — 크랙(Crack)
 - [[wiki/Dalar]] — Dalar
 - [[wiki/Graphify]] — Graphify
 - [[wiki/Grok-Bot]] — Grok Bot
@@ -49,6 +50,7 @@ AI Labs is a biweekly AI topic sharing and discussion group.
 - [[entities/people/ulaulareyo]] — Person: ulaulareyo
 - [[entities/people/yuil]] — Person: Yuil
 - [[entities/services/aside]] — Service: Aside
+- [[entities/services/crack]] — Service: Crack
 - [[entities/services/dalar]] — Service: Dalar
 - [[entities/services/grok-bot]] — Service: Grok Bot
 - [[entities/services/lampas]] — Service: Lampas

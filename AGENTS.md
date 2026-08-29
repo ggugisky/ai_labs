@@ -52,3 +52,6 @@ This repo is for AI Labs meeting notes and the LLM Wiki structure around them.
 - After completing `lint` and `promote`, run the validation checks, commit the changes, and push them to `origin/main`.
 - Standard commands are `python scripts/lint.py`, `python scripts/promote.py`,
   and `python scripts/build_index.py`.
+- Install the validation dependency `PyYAML` before running these commands.
+- Never report knowledge as saved unless validation, commit, and push all succeed.
+- If any required command cannot run or fails, report the operation as incomplete and include the blocking error.
