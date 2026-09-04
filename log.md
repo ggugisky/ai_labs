@@ -10,6 +10,12 @@
 
 # AI Labs Log
 
+## 2026-09-04
+
+- Added the Yuil presentation analysis based on the AI Labs Episode 4 recording and the checked-in presentation notes.
+- Enriched the 2026-09-04 meeting note with the presentation summary, evidence boundaries, and follow-up actions.
+- Added the Mungme service entity and reviewed wiki page, linking its data-product patterns to existing AI Labs knowledge.
+
 ## 2026-07-08
 
 - brain-template style structure initialized.

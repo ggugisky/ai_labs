@@ -33,6 +33,7 @@ AI Labs is a biweekly AI topic sharing and discussion group.
 - [[wiki/Hermes-Agent]] — Hermes Agent
 - [[wiki/LLM-Wiki]] — LLM Wiki
 - [[wiki/Lampas]] — Lampas
+- [[wiki/Mungme]] — 멍미
 - [[wiki/Pi-Coding-Agent]] — Pi Coding Agent
 
 <!-- END GENERATED: wiki-index -->
@@ -55,6 +56,7 @@ AI Labs is a biweekly AI topic sharing and discussion group.
 - [[entities/services/grok-bot]] — Service: Grok Bot
 - [[entities/services/lampas]] — Service: Lampas
 - [[entities/services/modu-ui-gaesori]] — Service: 모두의 개소리
+- [[entities/services/mungme]] — Service: 멍미
 - [[entities/services/ssot-viewer]] — Service: SSOT Viewer
 - [[entities/tools/claude-tag]] — Tool: Claude Tag
 - [[entities/tools/connect-ai]] — Tool: connect-ai

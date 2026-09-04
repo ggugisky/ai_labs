@@ -1,5 +1,8 @@
 version: 1
 promotions:
+  - entity: entities/services/mungme.md
+    wiki: wiki/Mungme.md
+    sources: [ailabs:raw/2026-09-04-yuil-presentation]
   - entity: entities/services/crack.md
     wiki: wiki/Crack.md
     sources: [ailabs:raw/2026-08-29-crack]
