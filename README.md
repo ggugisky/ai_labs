@@ -81,3 +81,4 @@ This repository stores AI Labs meeting notes in a brain-template style LLM Wiki 
 - Eddie : [0ams.dev@gmail.com](mailto:0ams.dev@gmail.com)
 - ulaulareyo : [ulaulareyo@naver.com](mailto:ulaulareyo@naver.com)
 - Kalsen : hooppa2@gmail.com
+- 민기
