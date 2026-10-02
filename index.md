@@ -34,6 +34,7 @@ AI Labs is a biweekly AI topic sharing and discussion group.
 - [[wiki/LLM-Wiki]] — LLM Wiki
 - [[wiki/Lampas]] — Lampas
 - [[wiki/Mungme]] — 멍미
+- [[wiki/OpenAI-DevDay-2026]] — OpenAI DevDay 2026
 - [[wiki/Pi-Coding-Agent]] — Pi Coding Agent
 
 <!-- END GENERATED: wiki-index -->

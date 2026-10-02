@@ -10,6 +10,12 @@
 
 # AI Labs Log
 
+## 2026-10-02
+
+- Added a captured note and reviewed wiki page for the OpenAI DevDay 2026 shared video.
+- Recorded Dots, Space, multi-agent delegation, GPT-6.1 Sol, computer use, Codex, security, and plugin platform topics.
+- Linked the page to Connect AI, Graphify, LLM Wiki, and the creative-content production use case.
+
 ## 2026-09-21
 
 - Updated the 2026-09-18 meeting note with the Slack discussion: postponed harness presentation, AI trend discussion, video-generation examples, and TTS references.

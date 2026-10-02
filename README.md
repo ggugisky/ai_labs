@@ -40,6 +40,7 @@ This repository stores AI Labs meeting notes in a brain-template style LLM Wiki 
 - [[wiki/LLM-Wiki]] — LLM Wiki
 - [[wiki/Lampas]] — Lampas
 - [[wiki/Mungme]] — 멍미
+- [[wiki/OpenAI-DevDay-2026]] — OpenAI DevDay 2026
 - [[wiki/Pi-Coding-Agent]] — Pi Coding Agent
 
 <!-- END GENERATED: wiki-index -->
