@@ -10,6 +10,11 @@
 
 # AI Labs Log
 
+## 2026-10-30
+
+- Added the original `GTM_Master_Framework.pptx` Slack file to `raw/`.
+- Added a first-pass analysis covering the eight-stage app GTM framework, metrics, launch gates, and AI Labs applications.
+
 ## 2026-10-02
 
 - Added a captured note and reviewed wiki page for the OpenAI DevDay 2026 shared video.
